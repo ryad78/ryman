@@ -1,0 +1,1 @@
+[{"stmt":"SELECT * FROM categories;","header":["id","name","description","image"],"rows":[["3","Epices Pures","<div>test</div>","spices-4185324_640.jpg"],["4","Herbes et Aromates","<div>test</div>","spices-5885435_640.jpg"],["5","Mélange d'épices","<div>test</div>","mortar-3433970_640.jpg"],["6","Poivres","<div>test</div>","peppercorns-3061211_640.jpg"]]}]

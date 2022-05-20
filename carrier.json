@@ -1,0 +1,1 @@
+[{"stmt":"SELECT * FROM carrier;","header":["id","name","description","price","created_at","update_at"],"rows":[["1","Chronopost","Fast delivry&nbsp","500.0","2021-09-03 12:30:56","NULL"],["2","collisomo","Ultra Fast delivry","400.0","2021-09-03 12:31:17","NULL"]]}]

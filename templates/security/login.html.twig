@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+{{ include ("partials/title_section.html.twig", {'name':'Login'}) }}
+<div class="login_register_wrap section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-md-10">
+                    <div class="login_wrap">
+                        <div class="padding_eight_all bg-white">
+                            <div class="heading_s1">
+                                <h3>Identifiez-vous</h3>
+                            </div>
+                            <form method="post">
+                            {% if app.user %}
+                                <div class="mb-3">
+                                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                                </div>
+                            {% endif %}
+                            <div class="message-flash">
+                                {% if error %}
+                                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                {% endif %}
+                            </div>
+                                <div class="form-group">
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                                </div>
+                                   <input type="hidden" name="_csrf_token"
+                                    value="{{ csrf_token('authenticate') }}"
+                                    >
+                                <div class="login_footer form-group">
+                                    
+                                    {# renitialisation mot de passe utilisateur #}
+                                    <a href="{{ path('app_forgot_password_request')}}">Mot de passe oublié ?</a>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-fill-out btn-block" name="login">Se connecter</button>
+                                </div>
+                            </form>
+                            <div class="different_login">
+                                <span> ou </span>
+                            </div>
+                            <ul class="btn-login list_none text-center">
+                                <li><a href="#" class="btn btn-facebook"><i class="ion-social-facebook"></i>Facebook</a></li>
+                                <li><a href="#" class="btn btn-google"><i class="ion-social-googleplus"></i>Google</a></li>
+                            </ul>
+                            <div class="form-note text-center">Vous avez pas de compte ? <a href="{{ path('app_register')}}">Créer un compte</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+{% endblock %}
